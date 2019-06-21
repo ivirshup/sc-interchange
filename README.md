@@ -38,4 +38,36 @@ Each mapping is a group. We're starting to introduce conventions to idenitfy how
 
 ### [SingleCellExperiment](https://bioconductor.org/packages/devel/bioc/html/SingleCellExperiment.html)
 
-**TODO**
+The `SingleCellExperiment` class is derived from the `SummarizedExperiment` class and thus shares its features:
+
+* `assays`: a list of matrices where rows are typically features (e.g, genes) and columns are samples (e.g., cells).
+Multiple matrices are allowed to accommodate different types of values, e.g., counts, RPMs, weights/offsets.
+All matrices in a single `SummarizedExperiment` instance must have the same dimensions.
+* `colData`: a data frame where each row corresponds to a column of a matrix in `assays`.
+This is used to store sample-specific fields (e.g., treatment condition, cell type, library quality).
+Any vector-like object can be stored in a single field, including nested data frames and matrices.
+* `rowData`: a data frame where each row corresponds to a row of a matrix in `assays`.
+This is used to store feature-specific fields (e.g., gene synonyms).
+Any vector-like object can be stored in a single field, including nested data frames and matrices.
+* `rowRanges`: a vector of genomic intervals where each entry corresponds to a row of a matrix in `assays`.
+This is used to store genomic coordinate information for each feature (e.g., locations of genes, SNPs, peaks).
+* `metadata`: a list of arbitrary objects containing general metadata about the object.
+This is traditionally used to store information about the entire study or experiment.
+
+The `SingleCellExperiment` provides the following additional features:
+
+* `reducedDims`: a list of matrices with the same number of rows, where each row corresponds to a column of a matrix in `assays`.
+Each matrix corresponds to a single dimensionality result result (from t-SNE, UMAP, PCA, etc.).
+Different results can have variable numbers of columns.
+* `int_colData`: same as `colData`, but internal.
+It is intended for developer use and should not be accessed by users.
+* `int_rowData`: same as `rowData`, but internal.
+It is intended for developer use and should not be accessed by users.
+
+These aspects are summarized in the figure below:
+
+![](https://osca.bioconductor.org/images/singlecellexperiment.png )
+
+The `SingleCellExperiment` class itself has no mandated on-disk format.
+Individual matrices in `assays` or fields in the `colData`/`rowData` may be file-backed objects (e.g., `HDF5Matrix`s),
+but the choice of representation and file format is left to the discretion of the user.
