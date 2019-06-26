@@ -68,7 +68,7 @@ It is intended for developer use and should not be accessed by users.
 
 These aspects are summarized in the figure below:
 
-![](https://osca.bioconductor.org/images/singlecellexperiment.png )
+![](https://osca.bioconductor.org/images/SingleCellExperiment.png)
 
 The `SingleCellExperiment` class itself has no mandated on-disk format.
 Individual matrices in `assays` or fields in the `colData`/`rowData` may be file-backed objects (e.g., `HDF5Matrix`s),
