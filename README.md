@@ -36,6 +36,8 @@ Each mapping is a group. We're starting to introduce conventions to idenitfy how
 
 **TODO**
 
+[Official spec](http://linnarssonlab.org/loompy/format/index.html)
+
 ### [SingleCellExperiment](https://bioconductor.org/packages/devel/bioc/html/SingleCellExperiment.html)
 
 The `SingleCellExperiment` class is derived from the `SummarizedExperiment` class and thus shares its features:
