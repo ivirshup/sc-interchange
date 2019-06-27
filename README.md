@@ -2,6 +2,16 @@
 
 Better interchange for single cell tools
 
+## Purpose of the repository
+
+The purpose of this repository is to enhance interoperability between tools for single cell analysis. The primary goal is to have better interchange file formats. That is, `SingleCellExperiment` users and `AnnData` users should be able to quickly share data without having to rely on suboptimal intermediates.
+
+Active questions:
+
+* How similar are the layouts? How easy is it to define canoncial tranformations between formats, or to a shared common format?
+* What would be a good, common on-disk representation?
+  * What are the right priorities for this?
+
 ## Summary of existing formats
 
 ### [`AnnData`](github.com/theislab/anndata) (`v0.7+`)
