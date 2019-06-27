@@ -12,6 +12,12 @@ Active questions:
 * What would be a good, common on-disk representation?
   * What are the right priorities for this?
 
+## Existing solutions
+
+* Exchange through `loom`
+* [`anndata2ri`](https://github.com/theislab/anndata2ri)
+* [Seurat conversion methods](https://satijalab.org/seurat/v3.0/conversion_vignette.html)
+
 ## Summary of existing formats
 
 ### [`AnnData`](github.com/theislab/anndata) (`v0.7+`)
